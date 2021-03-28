@@ -31,6 +31,7 @@ function findNameOfTallestMountain(mountainsArray: Mountain[]) {
   return tallest?.name;
 }
 
+// Call function and pass in mountains array as argument. Store result in variable and console.log it.
 const tallestMountain = findNameOfTallestMountain(mountains);
 console.log(tallestMountain);
 
@@ -86,5 +87,55 @@ function calcAverageProductPrice(productsArray: Product[]): number {
   }
 }
 
+// Call function and pass in products array as argument. Store result in variable and console.log it.
 const productsAverage: number = calcAverageProductPrice(products);
 console.log(productsAverage);
+
+// INVENTORY
+// Create a new interface called InventoryItem
+interface InventoryItem {
+  product: Product;
+  quantity: number;
+}
+
+// Declare an array called inventory which is an array of type InventoryItem
+const inventory: InventoryItem[] = [
+  {
+    product: { name: "motor", price: 10.0 },
+    quantity: 10,
+  },
+  {
+    product: { name: "sensor", price: 12.5 },
+    quantity: 4,
+  },
+  {
+    product: { name: "LED", price: 1.0 },
+    quantity: 20,
+  },
+];
+
+// Declare a function that takes in an array of InventoryItem objects and returns the
+// total value of all products in the inventory
+function calcInventoryValue(inventoryItemsArray: InventoryItem[]): number {
+  // Declare a variable for the itemPrice (item in array * its quantity)
+  let itemPrice: number = 0;
+  // Declare a variable for the totalPrice of all the items in the cart
+  let totalPrice: number = 0;
+
+  // Loop through the array and, for each item, calculate the itemPrice and add it to the totalPrice
+  for (let item of inventoryItemsArray) {
+    itemPrice = item.product.price * item.quantity;
+    totalPrice += itemPrice;
+  }
+
+  // If the array is empty, return 0. Else, return the totalPrice.
+  if (inventoryItemsArray.length === 0) {
+    return 0;
+  } else {
+    return totalPrice;
+  }
+}
+
+// Call function and pass in inventory array as argument. Store result in variable and console.log it.
+const totalInventoryValue = calcInventoryValue(inventory);
+console.log(totalInventoryValue);

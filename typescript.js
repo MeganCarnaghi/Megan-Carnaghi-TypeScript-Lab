@@ -68,3 +68,40 @@ function calcAverageProductPrice(productsArray) {
 }
 var productsAverage = calcAverageProductPrice(products);
 console.log(productsAverage);
+// Declare an array called inventory which is an array of type InventoryItem
+var inventory = [
+    {
+        product: { name: "motor", price: 10.0 },
+        quantity: 10
+    },
+    {
+        product: { name: "sensor", price: 12.5 },
+        quantity: 4
+    },
+    {
+        product: { name: "LED", price: 1.0 },
+        quantity: 20
+    },
+];
+// Declare a function that takes in an array of InventoryItem objects and returns the total value of all products in the inventory
+function calcInventoryValue(inventoryItemsArray) {
+    // Declare a variable for the itemPrice (item in array * its quantity)
+    var itemPrice = 0;
+    // Declare a variable for the totalPrice of all the items in the cart
+    var totalPrice = 0;
+    // Loop through the array and, for each item, calculate the itemPrice and add it to the totalPrice
+    for (var _i = 0, inventoryItemsArray_1 = inventoryItemsArray; _i < inventoryItemsArray_1.length; _i++) {
+        var item = inventoryItemsArray_1[_i];
+        itemPrice = item.product.price * item.quantity;
+        totalPrice += itemPrice;
+    }
+    // If the array is empty, return 0. Else, return the totalPrice.
+    if (inventoryItemsArray.length === 0) {
+        return 0;
+    }
+    else {
+        return totalPrice;
+    }
+}
+var totalInventoryValue = calcInventoryValue(inventory);
+console.log(totalInventoryValue);
