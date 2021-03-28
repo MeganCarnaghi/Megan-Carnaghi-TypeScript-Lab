@@ -19,9 +19,15 @@ function findNameOfTallestMountain(mountainsArray) {
             tallest = mountain;
         }
     }
-    // Return the name of the tallest mountain
-    return tallest === null || tallest === void 0 ? void 0 : tallest.name;
+    // If the array is empty, return "". Else, return the name of the tallest mountain.
+    if (mountainsArray.length === 0) {
+        return "";
+    }
+    else {
+        return tallest === null || tallest === void 0 ? void 0 : tallest.name;
+    }
 }
+// Call function and pass in mountains array as argument. Store result in variable and console.log it.
 var tallestMountain = findNameOfTallestMountain(mountains);
 console.log(tallestMountain);
 // Declare an array of products
@@ -66,6 +72,7 @@ function calcAverageProductPrice(productsArray) {
         return average;
     }
 }
+// Call function and pass in products array as argument. Store result in variable and console.log it.
 var productsAverage = calcAverageProductPrice(products);
 console.log(productsAverage);
 // Declare an array called inventory which is an array of type InventoryItem
@@ -83,7 +90,8 @@ var inventory = [
         quantity: 20
     },
 ];
-// Declare a function that takes in an array of InventoryItem objects and returns the total value of all products in the inventory
+// Declare a function that takes in an array of InventoryItem objects and returns the
+// total value of all products in the inventory
 function calcInventoryValue(inventoryItemsArray) {
     // Declare a variable for the itemPrice (item in array * its quantity)
     var itemPrice = 0;
@@ -103,5 +111,6 @@ function calcInventoryValue(inventoryItemsArray) {
         return totalPrice;
     }
 }
+// Call function and pass in inventory array as argument. Store result in variable and console.log it.
 var totalInventoryValue = calcInventoryValue(inventory);
 console.log(totalInventoryValue);

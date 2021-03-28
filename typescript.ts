@@ -27,8 +27,12 @@ function findNameOfTallestMountain(mountainsArray: Mountain[]) {
       tallest = mountain;
     }
   }
-  // Return the name of the tallest mountain
-  return tallest?.name;
+  // If the array is empty, return "". Else, return the name of the tallest mountain.
+  if (mountainsArray.length === 0) {
+    return "";
+  } else {
+    return tallest?.name;
+  }
 }
 
 // Call function and pass in mountains array as argument. Store result in variable and console.log it.
